@@ -104,7 +104,7 @@ void Heap<T>::remove(T value) {
 template <typename T>
 T Heap<T>::getMin() {
   // TODO: TO BE IMPLEMENTED
-  return valuse.at(0);
+  return values.at(0);
 }
 
 /*******************************/
