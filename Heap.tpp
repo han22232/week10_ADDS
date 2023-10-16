@@ -57,17 +57,22 @@ Heap<T>::Heap(std::vector<T> start_values) {
 template <typename T>
 void Heap<T>::insert(T value) {
   // TODO: TO BE IMPLEMENTED
-values.push_back(value);
-int index = values.size() - 1;
-int parent_index= index/2;
-while(index>0 && values.at(index)<values.at(parent_index)){
-    int temp = values.at(index);
-    values.at(index) = values.at(parent_index);
-    values.at(parent_index) = temp;
-    index = parent_index;
-    parent_index = index/2;
-}
-return;
+
+    // Add the value to the end of the array
+    values.push_back(value);
+    // Find the index of the value to be removed
+    int index = values.size() - 1;
+    int parent_index = (index - 1) / 2;
+    while (index > 0 && values.at(index) < values.at((index - 1) / 2))
+    {
+        T temp = values.at(index);
+        values.at(index) = values.at((index - 1) / 2);
+        values.at((index - 1) / 2) = temp;
+        index=parent_index;
+        parent_index = (index - 1) / 2;
+        
+    }
+    return;
 
 }
 
